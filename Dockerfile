@@ -15,9 +15,8 @@ COPY ./pom.xml /app
 
 # Build the application
 RUN mvn -f /app/pom.xml clean package -DskipTests
-
+RUN ls -la /app/target
 # Copy the built JAR file to the container
-COPY ./target/*.jar /app/app.jar
 
 
 EXPOSE 8080
