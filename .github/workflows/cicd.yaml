@@ -17,7 +17,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v4
       with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
 # Login to ECR
@@ -32,7 +32,7 @@ jobs:
         echo "${{ vars.APPLICATION_PROPERTIES }}" > application.properties
         # ls -la 
         # cat application.properties
-        docker build -t netflix_backend:latest .
+        docker build -t netflix_backend_repo:latest .
 
     - name: Docker push
       run: |
