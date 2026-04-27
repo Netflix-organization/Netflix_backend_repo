@@ -23,6 +23,7 @@ jobs:
         run: |
           echo "${{ vars.APPLICATION_PROPERTIES }}" > application.properties
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/netflix_backend:${GITHUB_RUN_NUMBER} .
+        
 
       - name: Push Docker image
         run: |
